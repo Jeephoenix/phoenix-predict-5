@@ -175,7 +175,7 @@ git init
 git branch -M main
 
 # 2. Add remote (create repo on GitHub first)
-git remote add origin https://github.com/YOUR_USERNAME/phoenix-predict-5.git
+git remote add origin https://github.com/Jeephoenix/phoenix-predict-5.git
 
 # 3. Stage contracts
 git add contracts/PhoenixPredict5.sol
