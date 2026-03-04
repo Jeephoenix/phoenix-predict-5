@@ -267,7 +267,7 @@ contract PhoenixPredict5 is Ownable, Pausable, ReentrancyGuard {
     function _lockRound(uint256 epoch) internal {
         Round storage round = rounds[epoch];
         require(block.timestamp >= round.lockTimestamp, "Too early to lock");
-        require(block.timestamp <= round.lockTimestamp + BUFFER_SECONDS, "Lock window expired");
+        require(block.timestamp <= round.lockTimestamp + 5 minutes, "Lock window expired");
         (uint80 roundId, int256 price) = _getOraclePrice();
         round.lockPrice    = price;
         round.lockOracleId = roundId;
