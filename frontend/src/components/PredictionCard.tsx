@@ -9,8 +9,8 @@ import { CONTRACT_ABI, CONTRACT_ADDRESS } from "../utils/contract";
 
 export function PredictionCard() {
   const { address, isConnected } = useAccount();
-  const { round, epoch, btcPrice, totalPool, upPool, downPool, upMultiplier, downMultiplier, isBettable, secondsLeft, isLoading } = useRoundData();
-  const countdown = useCountdown(secondsLeft);
+  const { round, epoch, btcPrice, totalPool, upPool, downPool, upMultiplier, downMultiplier, isBettable, lockTimestamp, isLoading, refetch } = useRoundData();
+const countdown = useCountdown(lockTimestamp);
 
   const [betAmount, setBetAmount] = useState("0.01");
   const [betError, setBetError] = useState("");
