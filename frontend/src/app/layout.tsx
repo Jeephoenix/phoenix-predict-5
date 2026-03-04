@@ -1,22 +1,26 @@
-import type { Metadata } from "next";
 import { Providers } from "./providers";
+import { IBM_Plex_Mono } from "next/font/google";
 import "../styles/globals.css";
 
-export const metadata: Metadata = {
-  title: "Phoenix Predict 5 | BTC Prediction Market",
-  description: "Decentralized 5-minute BTC/USD prediction market on Base",
+const ibm = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  variable: "--font-mono",
+});
+
+export const metadata = {
+  title: "Phoenix Predict 5",
+  description: "Decentralized BTC prediction market",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
-      <head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body>
+      <body className={ibm.variable}>
         <Providers>{children}</Providers>
       </body>
     </html>
