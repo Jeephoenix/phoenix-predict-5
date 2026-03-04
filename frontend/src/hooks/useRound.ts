@@ -24,7 +24,7 @@ export function useRoundData() {
       { ...base, functionName: "getLatestPrice" },
       { ...base, functionName: "currentEpoch" },
     ],
-    query: { refetchInterval: 5_000 },
+    query: { refetchInterval: 3_000 },
   });
 
   const round = data?.[0]?.result as RoundData | undefined;
@@ -69,8 +69,7 @@ export function useRoundData() {
     now >= round.startTimestamp &&
     now < round.lockTimestamp;
 
-  const secondsLeft =
-    round && isBettable ? Number(round.lockTimestamp - now) : 0;
+  const lockTimestamp = round ? Number(round.lockTimestamp) : 0;
 
   return {
     round,
@@ -82,7 +81,7 @@ export function useRoundData() {
     upMultiplier,
     downMultiplier,
     isBettable,
-    secondsLeft,
+    lockTimestamp,
     isLoading,
     refetch,
   };
