@@ -2,7 +2,6 @@ import { http, createConfig } from "wagmi";
 import { base, baseSepolia } from "wagmi/chains";
 import {
   coinbaseWallet,
-  rabbyWallet,
   okxWallet,
   metaMaskWallet,
 } from "@rainbow-me/rainbowkit/wallets";
@@ -11,7 +10,7 @@ import { connectorsForWallets } from "@rainbow-me/rainbowkit";
 const wallets = [
   {
     groupName: "Recommended",
-    wallets: [coinbaseWallet, rabbyWallet, okxWallet, metaMaskWallet],
+    wallets: [coinbaseWallet, okxWallet, metaMaskWallet],
   },
 ];
 
