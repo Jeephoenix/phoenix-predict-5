@@ -3,11 +3,13 @@
 import { useAccount, useConnect, useDisconnect } from "wagmi";
 import { PredictionCard } from "../components/PredictionCard";
 import { ClaimPanel } from "../components/ClaimPanel";
+import { RoundHistory } from "../components/RoundHistory";
+import { useRoundData } from "../hooks/useRound";
 
 function ConnectButton() {
   const { address, isConnected } = useAccount();
-  const { connect, connectors } = useConnect();
-  const { disconnect } = useDisconnect();
+  const { connect, connectors }  = useConnect();
+  const { disconnect }           = useDisconnect();
 
   if (isConnected) {
     return (
@@ -18,13 +20,18 @@ function ConnectButton() {
   }
 
   return (
-    <button className="btn-connect" onClick={() => connect({ connector: connectors[0] })}>
+    <button
+      className="btn-connect"
+      onClick={() => connect({ connector: connectors[0] })}
+    >
       Connect Wallet
     </button>
   );
 }
 
 export default function Home() {
+  const { epoch } = useRoundData();
+
   return (
     <div className="app">
       <header className="app-header">
@@ -36,6 +43,7 @@ export default function Home() {
       <main className="main-content">
         <PredictionCard />
         <ClaimPanel />
+        <RoundHistory currentEpoch={epoch} />
       </main>
     </div>
   );
