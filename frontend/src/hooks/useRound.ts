@@ -53,12 +53,12 @@ export function useRoundData() {
 
   // Payout multiplier for UP: total / upAmount (less fee ~2%)
   const upMultiplier =
-    round && round.upAmount > 0n
+    round && round.upAmount > BigInt(0)
       ? ((Number(round.totalAmount) * 0.98) / Number(round.upAmount)).toFixed(2)
       : "--";
 
   const downMultiplier =
-    round && round.downAmount > 0n
+    round && round.downAmount > BigInt(0)
       ? ((Number(round.totalAmount) * 0.98) / Number(round.downAmount)).toFixed(2)
       : "--";
 
