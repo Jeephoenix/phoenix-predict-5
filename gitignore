@@ -1,0 +1,21 @@
+# Dependencies
+node_modules/
+frontend/node_modules/
+
+# Build outputs
+dist/
+artifacts/
+cache/
+typechain-types/
+frontend/.next/
+frontend/out/
+
+# Environment
+.env
+.env.local
+frontend/.env.local
+
+# Misc
+.DS_Store
+*.log
+coverage/
